@@ -30,7 +30,7 @@ export const promiseComponent = (  element ) => {
 
     let hero1;
 
-
+    //! promise all las dos promesas no dependen de los resultados de las otras
     Promise.all([
         findHero(id1),
         findHero(id2),
