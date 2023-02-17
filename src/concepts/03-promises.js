@@ -7,7 +7,22 @@ import { heroes } from "../data/heroes"
 
 export const promiseComponent = (  element ) => {
 
-    console.log('demoComponent')
+    const renderHero = ( hero ) => {
+        element.innerHTML = hero.name;
+    }
+
+    const renderError = ( error ) => {
+        element.innerHTML = `
+            <h1>Error:</h1>
+            <h3>${ error }</h3>
+        `
+    }
+
+    const id1 = '5d86371f1efebc31def272e2'
+
+    findHero( id1 ).then( renderHero )
+        .catch( renderError )
+
 
 }
 
@@ -32,5 +47,4 @@ const findHero = ( id ) => {
         reject(`Hero with id ${ id } not found`);
     });
 
-    return promise;
 }
